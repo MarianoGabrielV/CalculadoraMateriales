@@ -8,6 +8,8 @@ class Controlador:
     def __init__(self, root):
         self.vista = Vista(root)
         self.vista.set_calcular_command(self.calcular_ladrillos)
+        #resetear
+        self.vista.set_reset_comand(self.resetear_campos)
 
     def calcular_ladrillos(self):
         try:
@@ -23,6 +25,9 @@ class Controlador:
 
         except ValueError:
             self.vista.resultado_label.config(text="Por favor, ingrese valores numéricos.")
+    #limpiar campos
+    def resetear_campos(self):
+        self.vista.limpiar_campos()
 
 if __name__ == "__main__":
     root = tk.Tk()
